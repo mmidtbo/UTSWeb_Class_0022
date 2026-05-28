@@ -49,6 +49,57 @@
       </div>
     </nav>
 
+    <main>
+      <div class="fl-home">
+        <section class="fl-hero">
+          <div class="fl-hero-left">
+            <div class="fl-hero-eyebrow">
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="currentColor"
+              >
+                <circle cx="5" cy="5" r="4" />
+              </svg>
+              Hono-first Documentation Layer
+            </div>
+
+            <h1 class="fl-hero-title">
+              <img src="./assets/logo.svg" alt="logo" />
+              API Docs<br />
+              for <span>Hono</span>
+            </h1>
+
+            <p class="fl-hero-sub">
+              Build OpenAPI Documentation in Hono without complicated pipelines.
+              Import, use, and your docs are automatically available.
+            </p>
+          </div>
+          <div class="fl-code-block fl-code-block--hero">
+            <div class="fl-code-header">
+              <span class="fl-code-filename">app.ts</span>
+              <div class="d-flex align-items-center gap-2">
+                <span class="fl-code-lang">typescript</span>
+                <button class="fl-copy-btn">Copy</button>
+              </div>
+            </div>
+            <pre><code class="language-typescript">import { Hono } from 'hono'
+import { fluenth } from 'fluenth'
+
+const app = new Hono()
+
+// Mount Fluenth — docs auto-available
+app.use(fluenth({
+  title: 'My API',
+  version: '1.0.0'
+}))
+</code></pre>
+          </div>
+        </section>
+      </div>
+    </main>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
