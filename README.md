@@ -1,5 +1,6 @@
+<p align="center">
 <img src="./assets/logo.svg" alt="Logo fluenth" style="width: 50%;" align="center" />
-
+</p>
 # Fluenth
 
 > **Fluent API Documentation for Hono**  
