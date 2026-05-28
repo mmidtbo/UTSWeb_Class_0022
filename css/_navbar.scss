@@ -30,18 +30,18 @@
   gap: 0.25rem;
   margin-top: 1rem;
   list-style: none;
+}
 
-  a {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--fg-muted);
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition:
-      color 0.15s,
-      background 0.15s;
-  }
+.fl-nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition:
+    color 0.15s,
+    background 0.15s;
 }
 
 .fl-nav-right {
@@ -66,12 +66,12 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   transition: all 0.15s;
+}
 
-  &:hover {
-    color: var(--fg);
-    background: var(--surface-0);
-    border-color: var(--overlay-0);
-  }
+.fl-btn-icon:hover {
+  color: var(--fg);
+  background: var(--surface-0);
+  border-color: var(--overlay-0);
 }
 
 .fl-btn-ghost {
@@ -89,10 +89,10 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   transition: all 0.15s;
+}
 
-  &:hover {
-    color: var(--fg);
-    background: var(--surface-0);
-    border-color: var(--overlay-0);
-  }
+.fl-btn-ghost:hover {
+  color: var(--fg);
+  background: var(--surface-0);
+  border-color: var(--overlay-0);
 }
