@@ -34,3 +34,9 @@
 .fl-terminal-body .cmd {
   color: var(--text);
 }
+
+.fl-terminal-label {
+  font-family: "Maple Mono NF", monospace;
+  font-size: 0.7rem;
+  color: var(--fg-subtle);
+}

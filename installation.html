@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installation — Fluenth</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link href="css/style.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="fl-navbar d-flex align-items-center">
+      <div
+        class="fl-navbar-inner d-flex align-items-center justify-content-between w-100 mx-auto gap-3"
+      >
+        <a href="../index.html"
+          ><img class="fl-logo-mark" src="./assets/logo.svg" alt="logo"
+        /></a>
+        <ul class="fl-nav-links gap-1 m-0">
+          <li><a href="getting-started.html" class="active">Docs</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+        </ul>
+        <div class="fl-nav-right d-flex align-items-center flex-shrink-0 gap-2">
+          <button
+            class="btn btn-outline-light btn-sm"
+            id="themeToggle"
+            type="button"
+          >
+            <i class="bi bi-sunrise-fill"></i>
+          </button>
+          <a
+            href="https://github.com"
+            class="btn btn-outline-light btn-sm"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="bi bi-github"></i>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="fl-docs-layout">
+      <aside class="fl-sidebar" id="docsSidebar">
+        <div class="fl-sidebar-section">
+          <div class="fl-sidebar-section-title">Introduction</div>
+          <ul class="fl-sidebar-nav">
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="installation.html">Installation</a></li>
+          </ul>
+        </div>
+        <div class="fl-sidebar-section">
+          <div class="fl-sidebar-section-title">Community</div>
+          <ul class="fl-sidebar-nav">
+            <li>
+              <a href="https://github.com" target="_blank" rel="noopener"
+                >GitHub ↗</a
+              >
+            </li>
+            <li>
+              <a href="https://discord.com" target="_blank" rel="noopener"
+                >Discord ↗</a
+              >
+            </li>
+            <li>
+              <a href="https://x.com" target="_blank" rel="noopener">X ↗</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="fl-content-wrap">
+        <article class="fl-content">
+          <div class="fl-breadcrumb">
+            <a href="../index.html">fluenth</a><span class="sep">/</span>
+            <a href="getting-started.html">docs</a><span class="sep">/</span>
+            <span>installation</span>
+          </div>
+
+          <h1>Installation</h1>
+          <p class="fl-page-intro">
+            Install Fluenth into your Hono project using your preferred package
+            manager. Fluenth has minimal dependencies and works across all
+            Hono-supported runtimes.
+          </p>
+
+          <h2 id="package-managers">Package Managers</h2>
+          <p>Choose your preferred package manager:</p>
+
+          <div class="fl-terminal">
+            <div class="fl-terminal-bar">
+              <span class="fl-terminal-label">npm</span>
+              <button class="btn btn-outline-light btn-sm ms-auto">Copy</button>
+            </div>
+            <div class="fl-terminal-body">
+              <div>
+                <span class="prompt">$ </span
+                ><span class="cmd">npm install fluenth</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fl-terminal">
+            <div class="fl-terminal-bar">
+              <span class="fl-terminal-label">pnpm</span>
+              <button class="btn btn-outline-light btn-sm ms-auto">Copy</button>
+            </div>
+            <div class="fl-terminal-body">
+              <div>
+                <span class="prompt">$ </span
+                ><span class="cmd">pnpm add fluenth</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fl-terminal">
+            <div class="fl-terminal-bar">
+              <span class="fl-terminal-label">bun</span>
+              <button class="btn btn-outline-light btn-sm ms-auto">Copy</button>
+            </div>
+            <div class="fl-terminal-body">
+              <div>
+                <span class="prompt">$ </span
+                ><span class="cmd">bun add fluenth</span>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="peer-dependencies">Peer Dependencies</h2>
+          <p>
+            Fluenth requires <code>hono</code> and <code>zod</code> as peer
+            dependencies. If you don't have them:
+          </p>
+
+          <div class="fl-terminal">
+            <div class="fl-terminal-bar">
+              <button class="btn btn-outline-light btn-sm ms-auto">Copy</button>
+            </div>
+            <div class="fl-terminal-body">
+              <div>
+                <span class="prompt">$ </span
+                ><span class="cmd">npm install hono zod fluenth</span>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="typescript">TypeScript Configuration</h2>
+          <p>
+            Fluenth ships with full TypeScript declarations. Ensure your
+            <code>tsconfig.json</code> has at least:
+          </p>
+
+          <div class="fl-code-block">
+            <div
+              class="fl-code-header d-flex align-items-center justify-content-between"
+            >
+              <span class="fl-code-filename">tsconfig.json</span>
+              <div class="d-flex align-items-center gap-2">
+                <span class="fl-code-lang">json</span>
+                <button class="btn btn-outline-light btn-sm">Copy</button>
+              </div>
+            </div>
+            <pre><code>{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "exactOptionalPropertyTypes": true
+  }
+}</code></pre>
+          </div>
+
+          <h2 id="runtimes">Runtime Support</h2>
+
+          <div class="fl-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Runtime</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Node.js ≥ 18</td>
+                  <td><span class="fl-badge green">Supported</span></td>
+                  <td>Recommended for local dev</td>
+                </tr>
+                <tr>
+                  <td>Bun</td>
+                  <td><span class="fl-badge green">Supported</span></td>
+                  <td>Fastest local dev experience</td>
+                </tr>
+                <tr>
+                  <td>Deno</td>
+                  <td><span class="fl-badge green">Supported</span></td>
+                  <td>Use npm: prefix</td>
+                </tr>
+                <tr>
+                  <td>Cloudflare Workers</td>
+                  <td><span class="fl-badge green">Supported</span></td>
+                  <td>Edge-compatible</td>
+                </tr>
+                <tr>
+                  <td>AWS Lambda</td>
+                  <td><span class="fl-badge blue">Compatible</span></td>
+                  <td>Via Hono adapter</td>
+                </tr>
+                <tr>
+                  <td>Vercel Edge</td>
+                  <td><span class="fl-badge blue">Compatible</span></td>
+                  <td>Via Hono adapter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="verify">Verify Installation</h2>
+          <p>After installing, verify by importing from fluenth:</p>
+
+          <div class="fl-code-block">
+            <div
+              class="fl-code-header d-flex align-items-center justify-content-between"
+            >
+              <span class="fl-code-filename">test-import.ts</span>
+              <div class="d-flex align-items-center gap-2">
+                <span class="fl-code-lang">typescript</span>
+                <button class="btn btn-outline-light btn-sm">Copy</button>
+              </div>
+            </div>
+            <pre><code>import { fluenth, describe } from 'fluenth'
+
+// Should resolve without errors
+console.log('Fluenth installed correctly ✓')</code></pre>
+          </div>
+
+          <div class="fl-callout warn">
+            <div class="fl-callout-title">Warning</div>
+            <p>
+              If you see a peer dependency warning about <code>hono</code>,
+              ensure your Hono version is <code>&gt;= 4.0.0</code>. Older
+              versions of Hono had a different middleware signature that Fluenth
+              does not support.
+            </p>
+          </div>
+
+          <div class="fl-page-nav">
+            <a href="getting-started.html" class="fl-page-nav-link prev">
+              <span class="fl-page-nav-label">← Previous</span>
+              <span class="fl-page-nav-title">Getting Started</span>
+            </a>
+          </div>
+        </article>
+
+        <nav class="fl-toc">
+          <div class="fl-toc-title">On this page</div>
+          <ul class="fl-toc-nav">
+            <li><a href="#package-managers">Package Managers</a></li>
+            <li><a href="#peer-dependencies">Peer Dependencies</a></li>
+            <li><a href="#typescript">TypeScript</a></li>
+            <li><a href="#runtimes">Runtime Support</a></li>
+            <li><a href="#verify">Verify Installation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script/app-jquery.js"></script>
+  </body>
+</html>

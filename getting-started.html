@@ -24,7 +24,7 @@
         </a>
         <ul class="fl-nav-links gap-1 m-0">
           <li><a href="getting-started.html" class="active">Docs</a></li>
-          <li><a href="openapi.html">OpenAPI</a></li>
+          <li><a href="installation.html">Installation</a></li>
         </ul>
         <div class="fl-nav-right d-flex align-items-center flex-shrink-0 gap-2">
           <button
@@ -54,12 +54,6 @@
           <ul class="fl-sidebar-nav">
             <li><a href="getting-started.html">Getting Started</a></li>
             <li><a href="installation.html">Installation</a></li>
-          </ul>
-        </div>
-        <div class="fl-sidebar-section">
-          <div class="fl-sidebar-section-title">Core</div>
-          <ul class="fl-sidebar-nav">
-            <li><a href="openapi.html">OpenAPI</a></li>
           </ul>
         </div>
         <div class="fl-sidebar-section">
@@ -102,75 +96,76 @@
             writing, or separate documentation toolchain.
           </p>
 
-          <h2 id="overview">Overview</h2>
-          <p>
-            Fluenth works by wrapping Hono's existing routing API with a thin
-            annotation layer. You describe your routes once, inline, and Fluenth
-            handles:
-          </p>
-          <ul>
-            <li>Generating the OpenAPI 3.1 spec from your Zod schemas</li>
-            <li>Registering all routes with their documentation metadata</li>
-            <li>Serving an interactive Scalar UI at <code>/docs</code></li>
-            <li>Exposing the raw spec at <code>/openapi.json</code></li>
-          </ul>
-
-          <div class="fl-callout tip">
-            <div class="fl-callout-title">Tip</div>
+          <section id="overview">
+            <h2>Overview</h2>
             <p>
-              If you're new to Hono, start with the
-              <a
-                href="https://hono.dev/docs/getting-started/basic"
-                target="_blank"
-                >Hono docs</a
-              >
-              first. Fluenth assumes familiarity with Hono's routing model.
+              Fluenth works by wrapping Hono's existing routing API with a thin
+              annotation layer. You describe your routes once, inline, and
+              Fluenth handles:
             </p>
-          </div>
+            <ul>
+              <li>Generating the OpenAPI 3.1 spec from your Zod schemas</li>
+              <li>Registering all routes with their documentation metadata</li>
+              <li>Serving an interactive Scalar UI at <code>/docs</code></li>
+              <li>Exposing the raw spec at <code>/openapi.json</code></li>
+            </ul>
 
-          <h2 id="quick-start">Quick Start</h2>
-          <p>
-            The fastest way to try Fluenth is with an existing Hono project. If
-            you don't have one, create one first:
-          </p>
+            <div class="fl-callout tip">
+              <div class="fl-callout-title">Tip</div>
+              <p>
+                If you're new to Hono, start with the
+                <a
+                  href="https://hono.dev/docs/getting-started/basic"
+                  target="_blank"
+                  >Hono docs</a
+                >
+                first. Fluenth assumes familiarity with Hono's routing model.
+              </p>
+            </div>
+          </section>
 
-          <div class="fl-terminal">
-            <div class="fl-terminal-bar">
-              <button
-                class="btn btn-outline-light btn-sm"
-                style="margin-left: auto"
+          <section id="quick-start">
+            <h2>Quick Start</h2>
+            <p>
+              The fastest way to try Fluenth is with an existing Hono project.
+              If you don't have one, create one first:
+            </p>
+
+            <div class="fl-terminal">
+              <div class="fl-terminal-bar">
+                <button class="btn btn-outline-light btn-sm ms-auto">
+                  Copy
+                </button>
+              </div>
+              <div class="fl-terminal-body">
+                <div>
+                  <span class="prompt">$ </span
+                  ><span class="cmd">npm create hono@latest my-app</span>
+                </div>
+                <div>
+                  <span class="prompt">$ </span
+                  ><span class="cmd">cd my-app</span>
+                </div>
+                <div>
+                  <span class="prompt">$ </span
+                  ><span class="cmd">npm install fluenth</span>
+                </div>
+              </div>
+            </div>
+
+            <p>Now add Fluenth to your app entry point:</p>
+
+            <div class="fl-code-block">
+              <div
+                class="fl-code-header d-flex align-items-center justify-content-between"
               >
-                Copy
-              </button>
-            </div>
-            <div class="fl-terminal-body">
-              <div>
-                <span class="prompt">$ </span
-                ><span class="cmd">npm create hono@latest my-app</span>
+                <span class="fl-code-filename">src/index.ts</span>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="fl-code-lang">typescript</span>
+                  <button class="btn btn-outline-light btn-sm">Copy</button>
+                </div>
               </div>
-              <div>
-                <span class="prompt">$ </span><span class="cmd">cd my-app</span>
-              </div>
-              <div>
-                <span class="prompt">$ </span
-                ><span class="cmd">npm install fluenth</span>
-              </div>
-            </div>
-          </div>
-
-          <p>Now add Fluenth to your app entry point:</p>
-
-          <div class="fl-code-block">
-            <div
-              class="fl-code-header d-flex align-items-center justify-content-between"
-            >
-              <span class="fl-code-filename">src/index.ts</span>
-              <div class="d-flex align-items-center gap-2">
-                <span class="fl-code-lang">typescript</span>
-                <button class="btn btn-outline-light btn-sm">Copy</button>
-              </div>
-            </div>
-            <pre><code>import { fluenth, route } from 'fluenth'
+              <pre><code>import { fluenth, route } from 'fluenth'
 import { z } from 'zod'
 
 const app = new Hono()
@@ -193,111 +188,118 @@ app.get('/users/:id',
 // → /docs   → /openapi.json
 // auto-generated, type-safe, zero glue ✨
 </code></pre>
-          </div>
+            </div>
 
-          <p>
-            Start your server and navigate to
-            <code>http://localhost:3000/docs</code>. Your API documentation is
-            live.
-          </p>
-
-          <h2 id="how-it-works">How It Works</h2>
-          <p>Fluenth operates in three phases:</p>
-
-          <ol class="fl-steps">
-            <li>
-              <div class="fl-step-num">1</div>
-              <div class="fl-step-body">
-                <strong>Middleware mount</strong>
-                When you call <code>app.use(fluenth({...}))</code>, Fluenth
-                registers an internal route registry and attaches the docs UI +
-                spec endpoints to your Hono app.
-              </div>
-            </li>
-            <li>
-              <div class="fl-step-num">2</div>
-              <div class="fl-step-body">
-                <strong>Route annotation</strong>
-                Each call to <code>describe({...})</code> wraps your handler
-                with metadata. Fluenth reads the Zod schemas from
-                <code>params</code>, <code>query</code>, <code>body</code>, and
-                <code>response</code> and converts them to OpenAPI JSON Schema
-                automatically.
-              </div>
-            </li>
-            <li>
-              <div class="fl-step-num">3</div>
-              <div class="fl-step-body">
-                <strong>Spec generation</strong>
-                On first request to <code>/openapi.json</code>, Fluenth
-                traverses its registry and assembles the complete OpenAPI 3.1
-                document. This is cached for subsequent requests.
-              </div>
-            </li>
-          </ol>
-
-          <h2 id="prerequisites">Prerequisites</h2>
-
-          <div class="fl-table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Dependency</th>
-                  <th>Version</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>hono</code></td>
-                  <td><span class="fl-badge blue">&gt;= 4.0.0</span></td>
-                  <td>Required peer dependency</td>
-                </tr>
-                <tr>
-                  <td><code>zod</code></td>
-                  <td><span class="fl-badge blue">&gt;= 3.22.0</span></td>
-                  <td>Required for schema annotation</td>
-                </tr>
-                <tr>
-                  <td>Node.js / Bun / Deno</td>
-                  <td><span class="fl-badge green">any</span></td>
-                  <td>Runtime agnostic</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="fl-callout note">
-            <div class="fl-callout-title">Note</div>
             <p>
-              Fluenth is runtime-agnostic. It runs on Node.js, Bun, Deno,
-              Cloudflare Workers, and any other environment Hono supports.
+              Start your server and navigate to
+              <code>http://localhost:3000/docs</code>. Your API documentation is
+              live.
             </p>
-          </div>
+          </section>
 
-          <h2 id="next-steps">Next Steps</h2>
-          <p>
-            Now that you've got the basics down, explore the rest of the
-            documentation:
-          </p>
-          <ul>
-            <li>
-              <a href="installation.html">Installation</a> — detailed setup for
-              different environments
-            </li>
-            <li>
-              <a href="openapi.html">OpenAPI</a> — advanced schema annotation
-              and customization
-            </li>
-          </ul>
+          <section id="how-it-works">
+            <h2>How It Works</h2>
+            <p>Fluenth operates in three phases:</p>
 
-          <div class="fl-page-nav">
-            <div style="flex: 1"></div>
-            <a href="installation.html" class="fl-page-nav-link next">
-              <span class="fl-page-nav-label">Next →</span>
-              <span class="fl-page-nav-title">Installation</span>
-            </a>
-          </div>
+            <ol class="fl-steps">
+              <li>
+                <div class="fl-step-num">1</div>
+                <div class="fl-step-body">
+                  <strong>Middleware mount</strong>
+                  When you call <code>app.use(fluenth({...}))</code>, Fluenth
+                  registers an internal route registry and attaches the docs UI
+                  + spec endpoints to your Hono app.
+                </div>
+              </li>
+              <li>
+                <div class="fl-step-num">2</div>
+                <div class="fl-step-body">
+                  <strong>Route annotation</strong>
+                  Each call to <code>describe({...})</code> wraps your handler
+                  with metadata. Fluenth reads the Zod schemas from
+                  <code>params</code>, <code>query</code>, <code>body</code>,
+                  and <code>response</code> and converts them to OpenAPI JSON
+                  Schema automatically.
+                </div>
+              </li>
+              <li>
+                <div class="fl-step-num">3</div>
+                <div class="fl-step-body">
+                  <strong>Spec generation</strong>
+                  On first request to <code>/openapi.json</code>, Fluenth
+                  traverses its registry and assembles the complete OpenAPI 3.1
+                  document. This is cached for subsequent requests.
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section id="prerequisites">
+            <h2>Prerequisites</h2>
+
+            <div class="fl-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Dependency</th>
+                    <th>Version</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>hono</code></td>
+                    <td><span class="fl-badge blue">&gt;= 4.0.0</span></td>
+                    <td>Required peer dependency</td>
+                  </tr>
+                  <tr>
+                    <td><code>zod</code></td>
+                    <td><span class="fl-badge blue">&gt;= 3.22.0</span></td>
+                    <td>Required for schema annotation</td>
+                  </tr>
+                  <tr>
+                    <td>Node.js / Bun / Deno</td>
+                    <td><span class="fl-badge green">any</span></td>
+                    <td>Runtime agnostic</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="fl-callout note">
+              <div class="fl-callout-title">Note</div>
+              <p>
+                Fluenth is runtime-agnostic. It runs on Node.js, Bun, Deno,
+                Cloudflare Workers, and any other environment Hono supports.
+              </p>
+            </div>
+          </section>
+
+          <section id="next-steps">
+            <h2>Next Steps</h2>
+            <p>
+              Now that you've got the basics down, explore the rest of the
+              documentation:
+            </p>
+            <ul>
+              <li>
+                <a href="installation.html">Installation</a> — detailed setup
+                for different environments
+              </li>
+              <li>
+                <a href="openapi.html">OpenAPI</a> — advanced schema annotation
+                and customization
+              </li>
+            </ul>
+
+            <div class="fl-page-nav">
+              <div style="flex: 1"></div>
+              <a href="installation.html" class="fl-page-nav-link next">
+                <span class="fl-page-nav-label">Next →</span>
+                <span class="fl-page-nav-title">Installation</span>
+              </a>
+            </div>
+          </section>
         </article>
 
         <nav class="fl-toc">
