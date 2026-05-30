@@ -133,7 +133,9 @@
 
             <div class="fl-terminal">
               <div class="fl-terminal-bar">
-                <button class="btn btn-outline-light btn-sm ms-auto">
+                <button
+                  class="btn btn-outline-light btn-sm ms-auto copy-button"
+                >
                   Copy
                 </button>
               </div>
@@ -162,7 +164,9 @@
                 <span class="fl-code-filename">src/index.ts</span>
                 <div class="d-flex align-items-center gap-2">
                   <span class="fl-code-lang">typescript</span>
-                  <button class="btn btn-outline-light btn-sm">Copy</button>
+                  <button class="btn btn-outline-light btn-sm copy-button">
+                    Copy
+                  </button>
                 </div>
               </div>
               <pre><code>import { fluenth, route } from 'fluenth'
@@ -321,6 +325,9 @@ app.get('/users/:id',
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="module" src="script/app-jsdom.js"></script>
+    <script src="script/app-jquery.js"></script>
+    <script>
+      window.initWebsite();
+    </script>
   </body>
 </html>

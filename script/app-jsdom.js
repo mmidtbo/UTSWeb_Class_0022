@@ -1,4 +1,4 @@
-export default function initThemeToggle() {
+function initThemeToggle() {
   const btn = document.getElementById("themeToggle");
   const html = document.documentElement;
 
@@ -47,4 +47,24 @@ function setLogo(isDark) {
   });
 }
 
-initThemeToggle();
+function initCopyButtons() {
+  document.querySelectorAll(".copy-button").forEach((copy) => {
+    copy.addEventListener("click", function () {
+      const btn = this;
+
+      const block = btn.closest(".fl-terminal, .fl-code-block");
+
+      const text = block.classList.contains("fl-terminal")
+        ? block.querySelector(".fl-terminal-body")?.textContent.trim()
+        : block.querySelector("pre code")?.textContent.trim();
+
+      navigator.clipboard.writeText(text || "").then(() => {
+        btn.textContent = "Copied";
+
+        setTimeout(() => {
+          btn.textContent = "Copy";
+        }, 2000);
+      });
+    });
+  });
+}

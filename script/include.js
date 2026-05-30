@@ -1,10 +1,7 @@
-import initThemeToggle from "./app-jsdom.js";
-
 async function loadComponent(id, file) {
-  const element = document.getElementById(id);
-  const response = await fetch(file);
-  const html = await response.text();
-  element.innerHTML = html;
+  var elmnt = document.getElementById(id);
+  var res = await fetch(file);
+  elmnt.innerHTML = await res.text();
 }
 async function InitPage() {
   await Promise.all([
@@ -17,8 +14,8 @@ async function InitPage() {
     loadComponent("community", "parts/community.html"),
     loadComponent("footer", "parts/footer.html"),
   ]);
-
-  initThemeToggle();
+  if (window.initWebsite) {
+    window.initWebsite();
+  }
 }
-
 InitPage();
