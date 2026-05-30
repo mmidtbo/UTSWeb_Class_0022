@@ -82,8 +82,11 @@ Saya sadar diri saya tidak jago styling — kalau semua CSS ditulis dalam satu f
 
 <h2>Screenshots</h2>
 
+<h3>Home</h3>
 ![Home](./assets/home.png)
+<h3>Docs</h3>
 ![Docs](./assets/docs.png)
+<h3>Installation</h3>
 ![Installation](./assets/installation.png)
 
 ---
