@@ -80,6 +80,12 @@ Saya sadar diri saya tidak jago styling — kalau semua CSS ditulis dalam satu f
 
 ![Struktur SCSS modular](./graph.svg)
 
+<h2>Screenshots</h2>
+
+![Home](./assets/home.png)
+![Docs](./assets/docs.png)
+![Installation](./assets/installation.png)
+
 ---
 
 ## Referensi Desain
